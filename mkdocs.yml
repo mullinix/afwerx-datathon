@@ -1,0 +1,61 @@
+# MkDocs static site generator configuration file.
+#
+# For more information, visit https://www.mkdocs.org/user-guide/configuration/.
+
+copyright: Copyright &copy; 2021 James Mullinix
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mullinix
+    - icon: fontawesome/solid/envelope
+      link: mailto://jmullinix@goraft.tech
+extra_css:
+  - css/style.css
+extra_javascript:
+  - https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js
+  - js/index.js
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - footnotes
+  - meta
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - User Guide: src/user/index.md
+  - API Reference: src/reference/index.md
+  - Developer Guide: src/developer/index.md
+plugins:
+  - mkdocstrings
+  - search
+repo_name: afwerx-datathon
+repo_url: https://github.com/mullinix/afwerx-datathon
+site_author: James Mullinix
+site_description: |
+  Data science pipelines for the AFWERX Datathon, 2021.
+site_name: afwerx-datathon
+site_url: https://mullinix.github.io/afwerx-datathon
+theme:
+  featues:
+    - navigation.tabs
+  name: material
+  palette:
+    accent: cyan
+    primary: teal
