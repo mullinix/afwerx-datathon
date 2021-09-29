@@ -1,32 +1,12 @@
-# Python configuration file for building, dependencies, and tooling.
-#
-# For more information, visit
-# https://snarky.ca/what-the-heck-is-pyproject-toml/.
-
 [build-system]
 build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core>=1.0.0"]
+requires = [ "poetry-core>=1.0.0",]
 
 [tool.black]
 line-length = 80
 
-[tool.coverage.report]
-exclude_lines = [
-    "if sys.version_info.*",
-    "pragma: no cover",
-    "raise NotImplementedError",
-]
-fail_under = 100
-show_missing = true
-
-[tool.coverage.run]
-branch = true
-command_line = "-m pytest"
-omit = []
-source = ["afwerx_datathon"]
-
 [tool.poetry]
-authors = ["James Mullinix <jmullinix@goraft.tech>"]
+authors = [ "James Mullinix <jmullinix@goraft.tech>",]
 description = "Data science pipelines for the AFWERX Datathon, 2021."
 documentation = "https://mullinix.github.io/afwerx-datathon"
 homepage = "https://github.com/mullinix/afwerx-datathon"
@@ -35,8 +15,20 @@ name = "afwerx-datathon"
 readme = "README.md"
 version = "0.1.0"
 
+[tool.coverage.report]
+exclude_lines = [ "if sys.version_info.*", "pragma: no cover", "raise NotImplementedError",]
+fail_under = 100
+show_missing = true
+
+[tool.coverage.run]
+branch = true
+command_line = "-m pytest"
+omit = []
+source = [ "afwerx_datathon",]
+
 [tool.poetry.dependencies]
-python = "^3.6.2"
+kedro = "^0.17.5"
+python = ">=3.6.2,<3.9"
 rich = "10.7.0"
 typer = "^0.3.2"
 typing-extensions = "^3.10.0.0"
@@ -44,7 +36,6 @@ typing-extensions = "^3.10.0.0"
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.0"
 black = "^21.7b0"
-coverage = { version = "^5.5.0", extras = ["toml"] }
 flake8 = "^3.9.2"
 flake8-bugbear = "^21.4.3"
 flake8-docstrings = "^1.6.0"
@@ -66,17 +57,15 @@ typer-cli = "^0.0.12"
 
 [tool.poetry.scripts]
 afwerx-datathon = "afwerx_datathon.__main__:app"
+
 [tool.pytest.ini_options]
 addopts = "-sv"
-markers = [
-    "functional: mark as functional test.",
-    "integration: mark as integration test.",
-    "unit: mark as unit test.",
-]
+markers = [ "functional: mark as functional test.", "integration: mark as integration test.", "unit: mark as unit test.",]
 python_classes = "Test*"
-python_files = [
-    "__init__.py",
-    "test_*.py",
-]
-python_functions = ["test_*"]
-testpaths = ["tests"]
+python_files = [ "__init__.py", "test_*.py",]
+python_functions = [ "test_*",]
+testpaths = [ "tests",]
+
+[tool.poetry.dev-dependencies.coverage]
+extras = [ "toml",]
+version = "^5.5.0"
