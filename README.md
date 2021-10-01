@@ -21,7 +21,7 @@ afwerx-datathon
 
 ### Installation
 
-afwerx-datathon can be installed for Python 3.6+ with
+afwerx-datathon can be installed for Python 3.7, 3.8 with
 
 ```bash
 pip install --user afwerx_datathon
