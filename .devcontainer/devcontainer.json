@@ -1,7 +1,5 @@
 {
-	"build":{"dockerfile": "Dockerfile"},
-	"mounts": ["source=${env:DATA_DIR},target=/data,type=bind"],
-	"extensions": [
-		"ms-python.python",
-	]
+  "build": { "dockerfile": "Dockerfile" },
+  "mounts": ["source=${env:DATA_DIR},target=/data,type=bind"],
+  "extensions": ["ms-python.python"]
 }

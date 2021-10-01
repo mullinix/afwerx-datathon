@@ -15,11 +15,13 @@
 - `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-009_dc.mat`
   - drop in sampling rate variablility at ~400; **still within tolerance**
 - `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-011_dc.mat`
-  - drop in sampling rate variablility at ~1900; **3% low drop out of tolerance**
+  - drop in sampling rate variablility at ~1900; **3% low drop out of
+    tolerance**
 - `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-003_dc.mat`
   - only 21% of samples within tolerance!
 - `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-004_dc.mat`
-  - all low by ~140Hz (~13% lower than nominal) but very consistent. **Likely still good data**
+  - all low by ~140Hz (~13% lower than nominal) but very consistent. **Likely
+    still good data**
 - `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-005_dc.mat`
   - all low by ~80Hz but very consistent. **Likely still good data**
 - `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-006_dc.mat`
@@ -89,7 +91,8 @@
 - `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-001_dc.mat`
   - all low but very consistent. **Likely still good data**
 - `sub-cp026_ses-20210716_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-001_dc.mat`
-  - square shift offset just below tolerance from 3.75e4-4.25e4. **Likely still good data**
+  - square shift offset just below tolerance from 3.75e4-4.25e4. **Likely still
+    good data**
 - `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-002_dc.mat`
   - bizzare step-wise variance from 80Hz low to 30Hz low
 - `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-003_dc.mat`
