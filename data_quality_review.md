@@ -1,0 +1,122 @@
+# Problem data (graphically -- sampling rate)
+
+- `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-002_dc.mat`
+  - drop in sampling rate at ~ 750; **still within tolerance**
+- `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-003_dc.mat`
+  - drop in sampling rate at ~ 500; **still within tolerance**
+- `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-004_dc.mat`
+  - drop in sampling rate variablility at ~400; **still within tolerance**
+- `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-005_dc.mat`
+  - drop in sampling rate variablility at ~400; **still within tolerance**
+- `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-006_dc.mat`
+  - drop in sampling rate variablility at ~400; **still within tolerance**
+- `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-008_dc.mat`
+  - drop in sampling rate variablility at ~400; **still within tolerance**
+- `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-009_dc.mat`
+  - drop in sampling rate variablility at ~400; **still within tolerance**
+- `sub-cp003_ses-20210206_task-ils_stream-lslxp11xpcplt_feat-chunk_run-011_dc.mat`
+  - drop in sampling rate variablility at ~1900; **3% low drop out of tolerance**
+- `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-003_dc.mat`
+  - only 21% of samples within tolerance!
+- `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-004_dc.mat`
+  - all low by ~140Hz (~13% lower than nominal) but very consistent. **Likely still good data**
+- `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-005_dc.mat`
+  - all low by ~80Hz but very consistent. **Likely still good data**
+- `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-006_dc.mat`
+  - all low by ~50Hz but very consistent. **Likely still good data**
+- `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-007_dc.mat`
+  - all low by ~50Hz but very consistent. **Likely still good data**
+- `sub-cp004_ses-20210330_task-ils_stream-lslshimmereda_feat-chunk_run-009_dc.mat`
+  - all low by ~50Hz but very consistent. **Likely still good data**
+- `sub-cp009_ses-20210129_task-ils_stream-lslxp11xpcplt_feat-chunk_run-001_dc.mat`
+  - high square pulse at ~3000
+- `sub-cp009_ses-20210129_task-ils_stream-lslxp11xpcplt_feat-chunk_run-002_dc.mat`
+  - high square pulse at 0-500
+- `sub-cp009_ses-20210129_task-ils_stream-lslxp11xpcplt_feat-chunk_run-004_dc.mat`
+  - sporadic variability 0-300
+- `sub-cp009_ses-20210129_task-ils_stream-lslxp11xpcplt_feat-chunk_run-007_dc.mat`
+  - high square pulse at 1200-1400
+- `sub-cp011_ses-20210408_task-ils_stream-lslshimmereda_feat-chunk_run-002_dc.mat`
+  - all low by ~40Hz but very consistent. **Likely still good data**
+- `sub-cp011_ses-20210408_task-ils_stream-lslxp11xpcplt_feat-chunk_run-007_dc.mat`
+  - wildly increased variablility at 700+
+- `sub-cp011_ses-20210408_task-ils_stream-lslxp11xpcplt_feat-chunk_run-008_dc.mat`
+  - wildly increased variablility at 900-1300
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmereda_feat-chunk_run-001_dc.mat`
+  - bizzare step-wise convergence from 200Hz low to 70Hz low
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-001_dc.mat`
+  - all samples low but consistent. **Likely still good data**
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmereda_feat-chunk_run-002_dc.mat`
+  - bizzare step-wise shifts from 650Hz low to 70Hz low
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-002_dc.mat`
+  - all samples low but consistent. **Likely still good data**
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmereda_feat-chunk_run-004_dc.mat`
+  - all low by ~140Hz but very consistent. **Likely still good data**
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-004_dc.mat`
+  - bizzare step-wise convergence from 200Hz low to 70Hz low
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-005_dc.mat`
+  - all samples low but consistent. **Likely still good data**
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-008_dc.mat`
+  - all samples low but consistent. **Likely still good data**
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-009_dc.mat`
+  - bizzare step-wise shifts from 45Hz low to 20Hz low
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-011_dc.mat`
+  - bizzare step-wise shifts from 45Hz low to 20Hz low
+- `sub-cp017_ses-20210521_task-ils_stream-lslshimmereda_feat-chunk_run-012_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp019_ses-20210625_task-ils_stream-lslshimmereda_feat-chunk_run-005_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp019_ses-20210625_task-ils_stream-lslshimmereda_feat-chunk_run-011_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp019_ses-20210625_task-ils_stream-lslshimmereda_feat-chunk_run-011_dc.mat`
+  - abrupt drop in sampling rate, ~120Hz low, at ~3.7e5+. **Might be good data**
+- `sub-cp020_ses-20210604_task-ils_stream-lslshimmereda_feat-chunk_run-010_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp020_ses-20210604_task-ils_stream-lslshimmereda_feat-chunk_run-011_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp023_ses-20210628_task-ils_stream-lslshimmereda_feat-chunk_run-006_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp023_ses-20210628_task-ils_stream-lslshimmereda_feat-chunk_run-007_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp023_ses-20210628_task-ils_stream-lslshimmereda_feat-chunk_run-008_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp023_ses-20210628_task-ils_stream-lslshimmereda_feat-chunk_run-011_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp024_ses-20210629_task-ils_stream-lslshimmereda_feat-chunk_run-006_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp024_ses-20210629_task-ils_stream-lslshimmereda_feat-chunk_run-008_dc.mat`
+  - abrupt drop in sampling rate, ~120Hz low, at ~2.7e5+. **Might be good data**
+- `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-001_dc.mat`
+  - all low but very consistent. **Likely still good data**
+- `sub-cp026_ses-20210716_task-ils_stream-lslshimmertorsoacc_feat-chunk_run-001_dc.mat`
+  - square shift offset just below tolerance from 3.75e4-4.25e4. **Likely still good data**
+- `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-002_dc.mat`
+  - bizzare step-wise variance from 80Hz low to 30Hz low
+- `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-003_dc.mat`
+  - bizzare step-wise variance from 80Hz low to 20Hz low
+- `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-005_dc.mat`
+  - bizzare step-wise variance from 80Hz low to 20Hz low
+- `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-008_dc.mat`
+  - slight offset toward end of data. **Likely still good data**
+- `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-009_dc.mat`
+  - bizzare step-wise variance from 50Hz low to 20Hz low
+- `sub-cp026_ses-20210716_task-ils_stream-lslshimmerrespecg_feat-chunk_run-009_dc.mat`
+  - slight offset toward beginning of data. **Likely still good data**
+- `sub-cp027_ses-20210722_task-ils_stream-lslshimmerrespecg_feat-chunk_run-010_dc.mat`
+  - Slightly low but consistent. **Likely still good data**
+- `sub-cp004_ses-20210330_task-rest_stream-lslshimmereda_feat-chunk_run-001_dc.mat`
+  - Slightly low but consistent. **Likely still good data**
+- `sub-cp005_ses-20210226_task-rest_stream-lslxp11xpcplt_feat-chunk_run-001_dc.mat`
+  - Uncharacteristically high variance. **Might still be good data**
+- `sub-cp017_ses-20210521_task-rest_stream-lslshimmereda_feat-chunk_run-002_dc.mat`
+  - Large offset low from 1.5e5+.
+- `sub-cp017_ses-20210521_task-rest_stream-lslshimmertorsoacc_feat-chunk_run-002_dc.mat`
+  - Slightly low but consistent. **Likely still good data**
+- `sub-cp018_ses-20210709_task-rest_stream-lslshimmereda_feat-chunk_level-00_run-001_dc.mat`
+  - All slightly low. Slight offset from 1.6e5+. **Likely still good data**
+- `sub-cp018_ses-20210709_task-rest_stream-lslshimmerrespecg_feat-chunk_level-00_run-001_dc.mat`
+  - Bizarre step-wise variance everywhere.
+- `sub-cp018_ses-20210709_task-rest_stream-lslshimmertorsoacc_feat-chunk_level-00_run-001_dc.mat`
+  - Bizarre step-wise variance everywhere.
+- `sub-cp019_ses-20210625_task-rest_stream-lslshimmertorsoacc_feat-chunk_run-002_dc.mat`
+  - Bizarre step-wise variance everywhere.
