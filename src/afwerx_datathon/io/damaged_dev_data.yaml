@@ -1,0 +1,36 @@
+ignore_data:
+  - type: ocuevts
+    pilots:
+      sub-cp003:
+        sessions:
+          ses-20210206:
+            runs:
+              - run-001 run-002 run-003 run-004 run-005 run-006 run-007 run-008
+                run-009 run-010 run-011 run-012
+      sub-cp027:
+        sessions:
+          ses-20210722:
+            runs:
+              - run-001 run-002
+  - type: acc
+    pilots:
+      sub-cp003:
+        sessions:
+          ses-20210206:
+            runs:
+              - run-001 run-002 run-003 run-004 run-005 run-006 run-007 run-008
+                run-009 run-010 run-011 run-012
+      sub-cp009:
+        sessions:
+          ses-20210129:
+            runs:
+              - run-001 run-002 run-003 run-004 run-005 run-006 run-007 run-008
+                run-009 run-010 run-011 run-012
+  - type: eda
+    pilots:
+      sub-cp005:
+        sessions:
+          ses-20210226:
+            runs:
+              - run-001 run-002 run-003 run-004 run-005 run-006 run-007 run-008
+                run-009 run-010 run-011 run-012
