@@ -1,13 +1,18 @@
 """Methods to build dataset files."""
 
-# this
+# builtins
 import pathlib
 from typing import Dict
+
+# 3d party/FOSS
 import pandas as pd
-from afwerx_datathon.io.types import DataType, ExperimentType, PathLike
-from afwerx_datathon.io.path import DEV_DATA, get_pilots, get_runs, get_sessions
+
+# this
 from afwerx_datathon.io.csv import CSVReader
 from afwerx_datathon.io.parquet import ParquetReader
+from afwerx_datathon.io.path import DEV_DATA, get_pilots, get_runs, get_sessions
+from afwerx_datathon.io.types import DataType, ExperimentType, PathLike
+
 
 def build_all() -> Dict:
     """Method to build monolithic dataframes."""
@@ -32,7 +37,7 @@ def build_all() -> Dict:
                         df_["run"] = run
                         data.append(df_)
 
-                    except:
+                    except Exception:
                         msg = "Could not load data for "
                         msg += f"{pilot}/{session}/{run}\n"
                         msg += f"data type: {data_type.value}."
@@ -41,7 +46,7 @@ def build_all() -> Dict:
         try:
             df = pd.concat(data, ignore_index=True)
             output[data_type] = df
-        except:
+        except Exception:
             print(f"Could not create monolith DF for {data_type.value}.")
             pass
     return output

@@ -8,8 +8,8 @@ from typing import Any
 import pandas as pd
 
 # this
-from afwerx_datathon.io.types import PathLike, DataType
 from afwerx_datathon.io.factory import ReaderFactory
+from afwerx_datathon.io.types import DataType, PathLike
 
 
 class CSVReader(ReaderFactory):
@@ -26,7 +26,7 @@ class CSVReader(ReaderFactory):
 
     def read(self, key: Any) -> Any:
         """Downselect data based on a key.
-        
+
         Note: This isn't a "lazy-reader" -- this reads all _then_ down selects.
         """
 

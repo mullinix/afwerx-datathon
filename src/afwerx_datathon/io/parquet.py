@@ -15,7 +15,7 @@ class ParquetReader(ReaderFactory):
 
     def read(self, key: Any) -> Any:
         """Downselect data based on a key.
-        
+
         Note: This isn't a "lazy-reader" -- this reads all _then_ down selects.
         """
 
@@ -25,9 +25,11 @@ class ParquetReader(ReaderFactory):
         """Read all data from file."""
 
         data = pd.read_parquet(self.path)
-        data = data.astype({
-            "run": "category",
-            "session": "category",
-            "pilot": "category",
-        })
+        data = data.astype(
+            {
+                "run": "category",
+                "session": "category",
+                "pilot": "category",
+            }
+        )
         return data

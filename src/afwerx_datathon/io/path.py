@@ -1,7 +1,6 @@
 """Methods for traversing data paths."""
 
 # builtins
-import abc
 import pathlib
 from typing import List
 
@@ -31,4 +30,3 @@ def get_runs(session_path: PathLike) -> List[pathlib.Path]:
     """Get listing of runs during a session."""
     path = pathlib.Path(session_path)
     return list(path.glob("run-*"))
-
