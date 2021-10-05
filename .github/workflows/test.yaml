@@ -3,23 +3,59 @@
 # For more information, visit
 # https://docs.github.com/actions/learn-github-actions.
 
-# name: test
+name: test
 
-# # Trigger workflow on push or pull request to the develop, main, and master
-# # branches.
-# on:
-#   pull_request:
-#     branches:
-#       - develop
-#       - main
-#       - master
-#   push:
-#     branches:
-#       - develop
-#       - main
-#       - master
+# Trigger workflow on push or pull request to the develop, main, and master
+# branches.
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+      - master
+  push:
+    branches:
+      - develop
+      - main
+      - master
 
-# jobs:
+jobs:
+  lint:
+    name: Check code with formatter and linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v2
+      - name: Install Node interpreter
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Install Prettier formatter
+        run: npm install -g prettier
+      - name: Check configuration file formatting
+        run: prettier --check .
+      - name: Install Python interpreter
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Cache Python packages
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: >-
+            python-3.8_${{ runner.os }}_poetry-${{ hashFiles('poetry.lock') }}
+      - name: Install Python packages
+        run: |
+          python -m pip install --upgrade pip poetry setuptools wheel
+          poetry config virtualenvs.in-project true
+          poetry install -v
+      - name: Run linter checks
+        run: |
+          poetry run bandit -ilr src/
+          poetry run black --check .
+          poetry run python scripts/build_docs.py
+          poetry run flake8 examples/ scripts/ src/ tests/
+          poetry run mypy --install-types --non-interactive examples/ scripts/ src/ tests/
 #   test:
 #     name: Run test suite for Python ${{ matrix.python }} on ${{ matrix.os }}
 #     strategy:
