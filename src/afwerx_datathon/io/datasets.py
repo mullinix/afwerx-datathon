@@ -16,13 +16,15 @@ from afwerx_datathon.io.path import DEV_DATA, get_pilots, get_runs, get_sessions
 from afwerx_datathon.io.types import DataType, ExperimentType, PathLike
 
 
-def build_all() -> Dict:
+def build_all(expr_type: ExperimentType = ExperimentType.ils) -> Dict:
     """Method to build monolithic dataframes."""
 
-    expr_type = ExperimentType.ils
     output = {}
     for dt_name in DataType.keys():
         data_type = DataType[dt_name]
+        # the "labels" data are already monolithic, so skip
+        if data_type == DataType.labels:
+            continue
         data = []
 
         for pilot_path in get_pilots(DEV_DATA, expr_type):
@@ -54,33 +56,46 @@ def build_all() -> Dict:
     return output
 
 
-def save_monolithic_data(data: Dict, location: PathLike = DEV_DATA) -> None:
+def save_monolithic_data(
+    data: Dict[DataType, pd.DataFrame],
+    location: PathLike = DEV_DATA,
+    expr_type: ExperimentType = ExperimentType.ils,
+) -> None:
     """Save monolithic data to parquet."""
 
     for data_type, df in data.items():
-        out_file = pathlib.Path(location) / f"{data_type.value}.parquet"
+        out_file = pathlib.Path(location)
+        out_file /= f"task-{expr_type.value}/{data_type.value}.parquet"
         df.to_parquet(out_file)
 
 
-def load_all(location: PathLike = DEV_DATA) -> Dict:
+def load_all(
+    location: PathLike = DEV_DATA,
+    expr_type: ExperimentType = ExperimentType.ils,
+) -> Dict:
     """Method to load all monolithic datasets."""
     location = pathlib.Path(location)
     data = {}
     for dt_name in DataType.keys():
         data_type = DataType[dt_name]
         if dt_name == "labels":
-            data[data_type] = load_labels(location)["labels"]
+            data[data_type] = load_labels(location, expr_type)["labels"]
         else:
-            path = location / f"{data_type.value}.parquet"
+            path = (
+                location / f"task-{expr_type.value}/{data_type.value}.parquet"
+            )
             reader = ParquetReader(path)
             data[data_type] = reader.read_all()
 
     return data
 
 
-def load_labels(location: PathLike = DEV_DATA) -> Dict:
+def load_labels(
+    location: PathLike = DEV_DATA,
+    expr_type: ExperimentType = ExperimentType.ils,
+) -> Dict:
     """Load the labels data from disk."""
-    location = pathlib.Path(location) / "task-ils"
+    location = pathlib.Path(location) / f"task-{expr_type.value}"
     # specify `latin-1` encoding due to an encoding error
     reader = CSVReader(location, DataType.labels, encoding="latin-1")
     data = reader.read_all()
