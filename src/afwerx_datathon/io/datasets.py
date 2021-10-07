@@ -68,11 +68,43 @@ def load_all(location: PathLike = DEV_DATA) -> Dict:
     data = {}
     for dt_name in DataType.keys():
         data_type = DataType[dt_name]
-        path = location / f"{data_type.value}.parquet"
-        reader = ParquetReader(path)
-        data[data_type] = reader.read_all()
+        if dt_name == "labels":
+            data[data_type] = load_labels(location)["labels"]
+        else:
+            path = location / f"{data_type.value}.parquet"
+            reader = ParquetReader(path)
+            data[data_type] = reader.read_all()
 
     return data
+
+
+def load_labels(location: PathLike = DEV_DATA) -> Dict:
+    """Load the labels data from disk."""
+    location = pathlib.Path(location) / "task-ils"
+    # specify `latin-1` encoding due to an encoding error
+    reader = CSVReader(location, DataType.labels, encoding="latin-1")
+    data = reader.read_all()
+    # an encoding error results in a bad column
+    del data["Unnamed: 0"]
+    # the conventions for Subject, Date, and Run do not match folder names
+    # so we update them here to match the other data
+    pilot = data.Subject.apply(lambda x: f"sub-cp{int(x):03d}")
+    session = data.Date.apply(lambda x: f"ses-{int(x)}")
+    run = data.Run.apply(lambda x: f"run-{int(x):03d}")
+    del data["Subject"]
+    del data["Date"]
+    del data["Run"]
+    data["pilot"] = pilot
+    data["session"] = session
+    data["run"] = run
+    data = data.astype(
+        {
+            "pilot": "category",
+            "session": "category",
+            "run": "category",
+        }
+    )
+    return {"labels": data}
 
 
 def remove_undesirables(data: Dict) -> Dict:
