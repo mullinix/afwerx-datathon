@@ -92,7 +92,6 @@ def remove_undesirables(data: Dict) -> Dict:
                     for run in runs
                 ]
     dfized = pd.DataFrame(ignores).drop_duplicates()
-    print(dfized)
     ignores = dfized.to_dict("records")
     for key, df in data.items():
         delete = np.zeros(len(df), dtype=np.bool8)
