@@ -2,10 +2,12 @@
 
 # builtins
 import pathlib
-from typing import Dict
+from typing import Dict, List
 
 # 3d party/FOSS
+import numpy as np
 import pandas as pd
+import yaml
 
 # this
 from afwerx_datathon.io.csv import CSVReader
@@ -70,4 +72,35 @@ def load_all(location: PathLike = DEV_DATA) -> Dict:
         reader = ParquetReader(path)
         data[data_type] = reader.read_all()
 
+    return data
+
+
+def remove_undesirables(data: Dict) -> Dict:
+    """Remove known bad data from datasets."""
+
+    pwd = pathlib.Path(__file__).parent
+    with open(pwd / "damaged_dev_data.yaml", "r") as f:
+        bad_data = yaml.safe_load(f)
+
+    ignores: List[Dict] = []
+    for bd in bad_data["ignore_data"]:
+        for pilot, pdata in bd["pilots"].items():
+            for session, sdata in pdata["sessions"].items():
+                runs = sdata["runs"]
+                ignores += [
+                    {"pilot": pilot, "session": session, "run": run}
+                    for run in runs
+                ]
+    dfized = pd.DataFrame(ignores).drop_duplicates()
+    print(dfized)
+    ignores = dfized.to_dict("records")
+    for key, df in data.items():
+        delete = np.zeros(len(df), dtype=np.bool8)
+        for ignore in ignores:
+            del_col = np.ones(len(df), dtype=np.bool8)
+            for colname, value in ignore.items():
+                del_col &= df[colname] == value
+            delete |= del_col
+        df = df[~delete]
+        data[key] = df
     return data
