@@ -9,9 +9,9 @@
 
 ---
 
-**Documentation**: https://mullinix.github.io/afwerx-datathon
+**Documentation**: <https://mullinix.github.io/afwerx-datathon>
 
-**Source Code**: https://github.com/mullinix/afwerx-datathon
+**Source Code**: <https://github.com/mullinix/afwerx-datathon>
 
 ---
 
