@@ -32,6 +32,7 @@ def calc_stats(data: npt.ArrayLike) -> Dict:
     }
     return results
 
+
 def query_df(data: pd.DataFrame, query: Dict) -> pd.DataFrame:
     """Get unique rows from a df with a query."""
     valid_rows = np.ones(len(data), dtype=bool)
@@ -39,12 +40,13 @@ def query_df(data: pd.DataFrame, query: Dict) -> pd.DataFrame:
         valid_rows &= data[col] == value
     return data[valid_rows]
 
+
 def calc_features(data: Dict, **kwargs) -> pd.DataFrame:
     """Calculate features for the data."""
     skip_types = [DataType.labels]
     skip_cols = ["pilot", "session", "run", "time_s"]
     df = data[DataType.perf]
-    runs =  df[["pilot", "session", "run"]].drop_duplicates().to_dict("records")
+    runs = df[["pilot", "session", "run"]].drop_duplicates().to_dict("records")
 
     results = []
     for run in runs:
@@ -57,7 +59,7 @@ def calc_features(data: Dict, **kwargs) -> pd.DataFrame:
                 if col in skip_cols:
                     continue
                 coeffs = pywt.wavedec(
-                    run_df[col], wavelet='bior2.8', level=4, **kwargs
+                    run_df[col], wavelet="bior2.8", level=4, **kwargs
                 )
                 for ix, coeff in enumerate(coeffs):
                     stats = calc_stats(coeff)
@@ -67,9 +69,11 @@ def calc_features(data: Dict, **kwargs) -> pd.DataFrame:
         results.append(features)
     return pd.DataFrame(results)
 
+
 def run_sort(data: pd.DataFrame) -> pd.DataFrame:
     """Sort by run-index."""
     return data.sort_values(["pilot", "session", "run"])
+
 
 def add_labels(
     feature_data: pd.DataFrame,
@@ -82,6 +86,7 @@ def add_labels(
     feature_data_sorted["labels"] = label_data_sorted[label_key]
     return feature_data
 
+
 def remove_nonfeatures(features_data: pd.DataFrame) -> pd.DataFrame:
     """Remove nonfeatures data from features dataframe."""
 
@@ -89,6 +94,7 @@ def remove_nonfeatures(features_data: pd.DataFrame) -> pd.DataFrame:
     del features_data["session"]
     del features_data["run"]
     return features_data
+
 
 def save_features(
     features_data: pd.DataFrame,
@@ -100,6 +106,7 @@ def save_features(
     fname = path / f"task-{expr_type.value}" / "wavelet_features.parquet"
     features_data.to_parquet(fname)
 
+
 def load_features(
     path: pathlib.Path = DEV_DATA,
     expr_type: ExperimentType = ExperimentType.ils,
@@ -109,6 +116,7 @@ def load_features(
     reader = ParquetReader(fname)
     return reader.read_all()
 
+
 def load_clean_labels(
     path: pathlib.Path = DEV_DATA,
     expr_type: ExperimentType = ExperimentType.ils,
@@ -116,6 +124,7 @@ def load_clean_labels(
     """Load labels data from disk."""
 
     return remove_undesirables(load_labels(path, expr_type))["labels"]
+
 
 def rf_workflow(features: pd.DataFrame, labels: pd.DataFrame) -> None:
     """Example workflow for RF analysis."""
