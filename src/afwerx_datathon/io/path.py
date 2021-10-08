@@ -1,13 +1,17 @@
 """Methods for traversing data paths."""
 
 # builtins
+import os
 import pathlib
 from typing import List
 
 # this
 from afwerx_datathon.io.types import ExperimentType, PathLike
 
-DATA_DIR = pathlib.Path("/data")
+# allow dynamic data directory location from env vars
+ddir = os.environ.get("DATA_DIR", "/data")
+
+DATA_DIR = pathlib.Path(ddir)
 DEV_DATA = DATA_DIR / "developmentSet"
 EVAL_DATA = DATA_DIR / "evaluationSet"
 

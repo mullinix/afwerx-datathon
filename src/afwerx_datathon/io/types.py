@@ -40,6 +40,7 @@ class DataType(REnum):
     xp11 = "lslxp11xpcplt"
     ocu = "ocuevts"
     perf = "perfmetric"
+    labels = "PerfMetrics"
 
 
 PathLike = Union[str, pathlib.Path]
