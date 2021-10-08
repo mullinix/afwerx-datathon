@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://mullinix.github.io/afwerx-datathon/</loc>
-         <lastmod>2021-10-01</lastmod>
+         <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mullinix.github.io/afwerx-datathon/src/developer/</loc>
-         <lastmod>2021-10-01</lastmod>
+         <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mullinix.github.io/afwerx-datathon/src/reference/</loc>
-         <lastmod>2021-10-01</lastmod>
+         <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mullinix.github.io/afwerx-datathon/src/user/</loc>
-         <lastmod>2021-10-01</lastmod>
+         <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
