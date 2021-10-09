@@ -16,7 +16,10 @@ from afwerx_datathon.io.path import DEV_DATA, get_pilots, get_runs, get_sessions
 from afwerx_datathon.io.types import DataType, ExperimentType, PathLike
 
 
-def build_all(expr_type: ExperimentType = ExperimentType.ils) -> Dict:
+def build_all(
+    location: PathLike = DEV_DATA,
+    expr_type: ExperimentType = ExperimentType.ils,
+) -> Dict:
     """Method to build monolithic dataframes."""
 
     output = {}
@@ -27,7 +30,7 @@ def build_all(expr_type: ExperimentType = ExperimentType.ils) -> Dict:
             continue
         data = []
 
-        for pilot_path in get_pilots(DEV_DATA, expr_type):
+        for pilot_path in get_pilots(location, expr_type):
             pilot = pilot_path.name
             for session_path in get_sessions(pilot_path):
                 session = session_path.name
