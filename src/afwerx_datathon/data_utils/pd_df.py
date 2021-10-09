@@ -1,11 +1,13 @@
 """Utility methods for manipulating pandas DataFrames."""
 
 # builtins
-from typing import Dict, List
+from typing import Dict
 
 # 3d party/FOSS
-import pandas as pd
 import numpy as np
+import pandas as pd
+
+DEFAULT_INDEX = pd.Index(["pilot", "session", "run"])
 
 
 def query(data: pd.DataFrame, query: Dict) -> pd.DataFrame:
@@ -16,11 +18,9 @@ def query(data: pd.DataFrame, query: Dict) -> pd.DataFrame:
     return data[valid_rows]
 
 
-def sort(
-    data: pd.DataFrame, idx: pd.Index = pd.Index(["pilot", "session", "run"])
-) -> pd.DataFrame:
+def sort(data: pd.DataFrame, idx: pd.Index = DEFAULT_INDEX) -> pd.DataFrame:
     """Sort by index.
-    
+
     Defaults to a "run_sort" [pilot, session, run]
     """
     return data.sort_values(idx)
@@ -28,10 +28,10 @@ def sort(
 
 def remove_nonfeatures(
     features_data: pd.DataFrame,
-    nonfeatures: List[str] = ["pilot", "session", "run"]
+    nonfeatures: pd.Index = DEFAULT_INDEX,
 ) -> pd.DataFrame:
     """Remove nonfeatures data from features dataframe.
-    
+
     Default nonfeatures: [pilot, session, run].
     """
 

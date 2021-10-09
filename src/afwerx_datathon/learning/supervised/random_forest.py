@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 # this
 from afwerx_datathon.data_utils import pd_df
 
+
 def rf_workflow(features: pd.DataFrame, labels: pd.DataFrame) -> None:
     """Example workflow for RF analysis."""
 

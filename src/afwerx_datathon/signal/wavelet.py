@@ -9,8 +9,8 @@ import pandas as pd
 import pywt
 
 # this
-from afwerx_datathon.io.types import DataType
 from afwerx_datathon.data_utils import pd_df
+from afwerx_datathon.io.types import DataType
 from afwerx_datathon.signal.metrics import calc_stats
 
 
@@ -41,4 +41,3 @@ def calc_features(data: Dict, **kwargs: Any) -> pd.DataFrame:
                         features[name] = stat
         results.append(features)
     return pd.DataFrame(results)
-
