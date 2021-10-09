@@ -3,7 +3,7 @@
 # builtins
 from copy import deepcopy
 import pathlib
-from typing import Dict
+from typing import Any, Dict
 
 # 3d party/FOSS
 import numpy as np
@@ -41,7 +41,7 @@ def query_df(data: pd.DataFrame, query: Dict) -> pd.DataFrame:
     return data[valid_rows]
 
 
-def calc_features(data: Dict, **kwargs) -> pd.DataFrame:
+def calc_features(data: Dict, **kwargs: Any) -> pd.DataFrame:
     """Calculate features for the data."""
     skip_types = [DataType.labels]
     skip_cols = ["pilot", "session", "run", "time_s"]
