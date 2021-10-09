@@ -153,3 +153,43 @@ def remove_undesirables(data: Dict) -> Dict:
         df = df[~delete]
         data[key] = df
     return data
+
+
+def load_clean_monolithic(
+    path: pathlib.Path = DEV_DATA,
+    expr_type: ExperimentType = ExperimentType.ils,
+) -> pd.DataFrame:
+    """Load & clean monolithic data from disk."""
+
+    return remove_undesirables(load_all(path, expr_type))
+
+
+def load_clean_labels(
+    path: pathlib.Path = DEV_DATA,
+    expr_type: ExperimentType = ExperimentType.ils,
+) -> pd.DataFrame:
+    """Load & clean labels data from disk."""
+
+    return remove_undesirables(load_labels(path, expr_type))["labels"]
+
+
+def load_features(
+    path: pathlib.Path = DEV_DATA,
+    expr_type: ExperimentType = ExperimentType.ils,
+) -> pd.DataFrame:
+    """Load features data from disk."""
+
+    fname = path / f"task-{expr_type.value}" / "wavelet_features.parquet"
+    reader = ParquetReader(fname)
+    return reader.read_all()
+
+
+def save_features(
+    features_data: pd.DataFrame,
+    path: pathlib.Path = DEV_DATA,
+    expr_type: ExperimentType = ExperimentType.ils,
+) -> None:
+    """Write features data to disk."""
+
+    fname = path / f"task-{expr_type.value}" / "wavelet_features.parquet"
+    features_data.to_parquet(fname)
